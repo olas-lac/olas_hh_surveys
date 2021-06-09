@@ -4,7 +4,7 @@ Olas_public contains the code to create the OLAS Houshold Survey Dataset (create
 
 ## Files 
 ## Code
-create_final_dataset.R - code that creates datasets
+**create_final_dataset.R** - code that creates datasets
 
 ## Inputs
 **jefe231020.Rda** - dataset containing standardized data from household surveys from 18 countries in LAC. 
@@ -107,4 +107,5 @@ Instituto Nacional de Estadística (INE)
 
 ### Output folders
 **countrydata** - folder contains outputs from code related to country-level datasets named by ISO code and overall dataset - OLAS Country Surveys
+
 **validation** - files for data validation, checking missing values, and country-level metrics. 
