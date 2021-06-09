@@ -8,6 +8,7 @@ create_final_dataset.R - code that creates datasets
 
 ## Inputs
 jefe231020.Rda - dataset containing standardized data from household surveys from 18 countries in LAC. 
+
 poblacion2 - population data from the 2019 World Bank Development Indicators dataset (total, rural, and urban populations).
 
 ### Household Survey Sources: 
