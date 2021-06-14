@@ -820,8 +820,9 @@ finaldraft$population_prc <- ifelse(finaldraft$scope == "urban" & finaldraft$sex
                                     ifelse(finaldraft$scope == "rural" & finaldraft$sex == "all" & finaldraft$quintile == "total", finaldraft$prcrural,
                                            ifelse(finaldraft$scope == "country"  & finaldraft$sex == "all" & finaldraft$quintile == "total", 1,
                                                   ifelse(finaldraft$scope=="country"& finaldraft$sex=="all" & finaldraft$quintile != "total", .2 ,
-                                                         ifelse(finaldraft$scope == "urban" & finaldraft$sex == "all" & finaldraft$quintile != "total", finaldraft$urbanpc*finaldraft$quintilepercent,
-                                                                ifelse(finaldraft$scope == "rural" & finaldraft$sex == "all" & finaldraft$quintile != "total", finaldraft$ruralpc*finaldraft$quintilepercent,NA))))))
+                                                         ifelse(finaldraft$pais_c =="JAM" & finaldraft$scope!="country"& finaldraft$sex=="all" & finaldraft$quintile != "total",NA,
+                                                           ifelse(finaldraft$scope == "urban" & finaldraft$sex == "all" & finaldraft$quintile != "total", finaldraft$urbanpc*finaldraft$quintilepercent,
+                                                                ifelse(finaldraft$scope == "rural" & finaldraft$sex == "all" & finaldraft$quintile != "total", finaldraft$ruralpc*finaldraft$quintilepercent,NA)))))))
 
 
 
