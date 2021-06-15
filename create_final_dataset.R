@@ -228,7 +228,7 @@ jefes$opdef <- ifelse(jefes$iv8%in%c(0,2,3,4,5,6,7,8,9),1, # ARG
                                                                        ifelse(jefes$p02b07%in%c(5),1, #GUATE
                                                                               ifelse(jefes$dh204%in%c(2),1, #honduras bien clasificado
                                                                                      ifelse(jefes$i5%in%c(5),1, #jam
-                                                                                            ifelse(jefes$sanit_agua%in%c(3),1, #mex 
+                                                                                            ifelse(jefes$excusado%in%c(2),1, #mex 
                                                                                                    ifelse(jefes$s1p18%in%c(6),1, #nic 
                                                                                                           ifelse(jefes$v1k_servic%in%c(3),1, ##panama 
                                                                                                                  ifelse(jefes$pais_c=="PER",NA, #asks if toilet is connected to open field, but not if household does not have access to toilet
@@ -924,7 +924,7 @@ write.csv(validationdata, file ="validation/data_validation.csv", row.names = FA
 ###split by country and export
 ## add data handling for latrines ub&lb
 
-write.csv(final, file ="countrydata/OLAS_Country_Surveys.csv", row.names = FALSE)
+write.csv(final, file ="countrydata/OLAS_HH_Survey_Dataset.csv", row.names = FALSE)
 write.csv(dataavailability, file ="validation/data_availability.csv", row.names = FALSE)
 
 
