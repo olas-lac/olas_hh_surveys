@@ -47,45 +47,45 @@ jefes$pipedprem <-ifelse(jefes$pais_c=="ARG" & jefes$iv6==2 & jefes$iv7==1,1, ##
 
 
 ###Non piped improved upper bound
-jefes$npimpub<- ifelse(jefes$iv7%in%c(2,3,4),1, #ARG ##correcto porque el destino da igual, no ponemos otra ya que puede haber protegidas en otra no es claro
-                       ifelse(jefes$s01a_10%in%c(3,4,5,6,7,9),1, #BOL bolivia clasifica bien
-                              ifelse(jefes$s01007%in%c(2,3,4,5),1, ##BRA no ponemos otra ya que ahi ir?an rios etc, no hay muchas protegidas ahi
-                                     ifelse(jefes$v20%in%c(4),1, ##CHILE otra especifica y en general no eran protegidas
-                                            ifelse(jefes$p5050%in%c(3,4,5,6,7),1,##COL solo esas pueden ser pero dudas en 3,4 y 6
-                                                   ifelse(jefes$v12%in%c(5,6,7),1, ##cr incluye otro 
-                                                          ifelse(jefes$donde_proviene_agua%in%c(4,5,6,7,8),1, ##dOM incluye tubo en la calle 5,manantial, rio o arroyo y pozo
-                                                                 ifelse(jefes$vi16%in%c(2,3,5),1, ##ECU incluir otra fuente por tuber?a
-                                                                        ifelse(jefes$p02b03%in%c(3,4,5,7),1, #GUATE 4 es pozo y 5 lago,rio o manantial
-                                                                               ifelse(jefes$dv105%in%c(2,3,4,5),1, #honduras correcto
-                                                                                      ifelse(jefes$i27%in%c(3,4,5,6,7),1, #jam incluye pozos 4 y 5 spring and river
-                                                                                             ifelse(jefes$disp_agua%in%c(3,4,7),1, #mex 7 engloba pozo,rio, arroyo
-                                                                                                    ifelse(jefes$s1p15%in%c(3,4,5),1, #nic 4 es pozo sin especificacion
-                                                                                                           ifelse(jefes$v1i_agua_b%in%c(4,6),1, #pan does classify protected unprotected
-                                                                                                                  ifelse(jefes$t110%in%c(3,5,6),1, #peru no incluye otros
-                                                                                                                         ifelse(jefes$v06%in%c(5,6,7,8,10),1, #PRY los pozos no 5 6 y 7 no queda claro si son o no mejorados
-                                                                                                                                ifelse(jefes$r313%in%c(4.1,5,5.1,8,10,12),1, #svy does classify properly
-                                                                                                                                       ifelse(jefes$d11%in%c(3,4),1,0)))))))))))))))))) #uruguay clasifica bien
+jefes$npimpub<- ifelse(jefes$pais_c=="ARG" & jefes$iv7%in%c(2,3,4),1, #ARG ##correcto porque el destino da igual, no ponemos otra ya que puede haber protegidas en otra no es claro
+                       ifelse(jefes$pais_c=="BOL" & jefes$s01a_10%in%c(3,4,5,6,7,9),1, #BOL bolivia clasifica bien
+                              ifelse(jefes$pais_c=="BRA" &jefes$s01007%in%c(2,3,4,5),1, ##BRA no ponemos otra ya que ahi ir?an rios etc, no hay muchas protegidas ahi
+                                     ifelse(jefes$pais_c=="CHL" & jefes$v20%in%c(4),1, ##CHILE otra especifica y en general no eran protegidas
+                                            ifelse(jefes$pais_c=="COL" & jefes$p5050%in%c(3,4,5,6,7),1,##COL solo esas pueden ser pero dudas en 3,4 y 6
+                                                   ifelse(jefes$pais_c=="CRI" & jefes$v12%in%c(5,6,7),1, ##cr incluye otro 
+                                                          ifelse(jefes$pais_c=="DOM" &jefes$donde_proviene_agua%in%c(4,5,6,7,8),1, ##dOM incluye tubo en la calle 5,manantial, rio o arroyo y pozo
+                                                                 ifelse(jefes$pais_c=="ECU" &jefes$vi16%in%c(2,3,5),1, ##ECU incluir otra fuente por tuber?a
+                                                                        ifelse(jefes$pais_c=="GTM" &jefes$p02b03%in%c(3,4,5,7),1, #GUATE 4 es pozo y 5 lago,rio o manantial
+                                                                               ifelse(jefes$pais_c=="HND" & jefes$dv105%in%c(2,3,4,5),1, #honduras correcto
+                                                                                      ifelse(jefes$pais_c=="JAM" & jefes$i27%in%c(3,4,5,6,7),1, #jam incluye pozos 4 y 5 spring and river
+                                                                                             ifelse(jefes$pais_c=="MEX" &jefes$disp_agua%in%c(3,4,7),1, #mex 7 engloba pozo,rio, arroyo
+                                                                                                    ifelse(jefes$pais_c=="NIC" & jefes$s1p15%in%c(3,4,5),1, #nic 4 es pozo sin especificacion
+                                                                                                           ifelse(jefes$pais_c=="PAN" & jefes$v1i_agua_b%in%c(4,6),1, #pan does classify protected unprotected
+                                                                                                                  ifelse(jefes$pais_c=="PER" & jefes$t110%in%c(3,5,6),1, #peru no incluye otros
+                                                                                                                         ifelse(jefes$pais_c=="PRY" & jefes$v06%in%c(5,6,7,8,10),1, #PRY los pozos no 5 6 y 7 no queda claro si son o no mejorados
+                                                                                                                                ifelse(jefes$pais_c=="SLV" & jefes$r313%in%c(4.1,5,5.1,8,10,12),1, #svy does classify properly
+                                                                                                                                       ifelse(jefes$pais_c=="URY" & jefes$d11%in%c(3,4),1,0)))))))))))))))))) #uruguay clasifica bien
 
 
 ### non piped improved lower bound 
-jefes$npimplb<- ifelse(jefes$iv7%in%c(2,3),1, #elseARG diferencia es otro
-                       ifelse(jefes$s01a_10%in%c(3,4,5,6,7,9),1, #BOL correctamente clasificado
-                              ifelse(jefes$s01007%in%c(4,5),1, ##BRA los pozos no especificados
+jefes$npimplb<- ifelse(jefes$pais_c=="ARG" & jefes$iv7%in%c(2,3),1, #elseARG diferencia es otro
+                       ifelse(jefes$pais_c=="BOL" & jefes$s01a_10%in%c(3,4,5,6,7,9),1, #BOL correctamente clasificado
+                              ifelse(jefes$pais_c=="BRA" & jefes$s01007%in%c(4,5),1, ##BRA los pozos no especificados
                                      ifelse(jefes$pais_c=="CHL",0, ##CHILE en todos engloba cosas que no
-                                            ifelse(jefes$p5050%in%c(5,7),1,##COL 5 y 7 siempre son las otras engloban cosas que no
+                                            ifelse(jefes$pais_c=="COL" & jefes$p5050%in%c(5,7),1,##COL 5 y 7 siempre son las otras engloban cosas que no
                                                    ifelse(jefes$pais_c=="CRI",0, ##cr correcto
-                                                          ifelse(jefes$donde_proviene_agua%in%c(4,5,7),1,##dOM sin rio y arroyo y pozos
-                                                                 ifelse(jefes$vi16%in%c(2),1,  ##ECU sin fuentes englobadas que no distinguen solo llave publica
-                                                                        ifelse(jefes$p02b03%in%c('3','7'),1, #GUATE solo pila publica y agua de lluvia
-                                                                               ifelse(jefes$dv105%in%c(4),1, #honduras unico termino que no engloba
-                                                                                      ifelse(jefes$i27%in%c(3,6,7),1, #jam solo public y agua de lluvia
-                                                                                             ifelse(jefes$disp_agua%in%c(3,4),1, #mex correcto
-                                                                                                    ifelse(jefes$s1p15%in%c(3,5),1, #nic pozo puede no ser mejorado
-                                                                                                           ifelse(jefes$v1i_agua_b%in%c(4,6),1, #pan does calssify protected unprotected
-                                                                                                                  ifelse(jefes$t110%in%c(3,6),1, #peru correcto
-                                                                                                                         ifelse(jefes$v06%in%c(8,10),1, #PRY correcto
-                                                                                                                                ifelse(jefes$r313%in%c(4.1,5,5.1,8,10,12),1, #svy does classify properly
-                                                                                                                                       ifelse(jefes$d11%in%c(3,4),1,0)))))))))))))))))) #uruguay clasifica bien
+                                                          ifelse(jefes$pais_c=="DOM" & jefes$donde_proviene_agua%in%c(4,5,7),1,##dOM sin rio y arroyo y pozos
+                                                                 ifelse(jefes$pais_c=="ECU" & jefes$vi16%in%c(2),1,  ##ECU sin fuentes englobadas que no distinguen solo llave publica
+                                                                        ifelse(jefes$pais_c=="GTM" & jefes$p02b03%in%c('3','7'),1, #GUATE solo pila publica y agua de lluvia
+                                                                               ifelse(jefes$pais_c=="HND" & jefes$dv105%in%c(4),1, #honduras unico termino que no engloba
+                                                                                      ifelse(jefes$pais_c=="JAM" & jefes$i27%in%c(3,6,7),1, #jam solo public y agua de lluvia
+                                                                                             ifelse(jefes$pais_c=="MEX" & jefes$disp_agua%in%c(3,4),1, #mex correcto
+                                                                                                    ifelse(jefes$pais_c=="NIC" & jefes$s1p15%in%c(3,5),1, #nic pozo puede no ser mejorado
+                                                                                                           ifelse(jefes$pais_c=="PAN" & jefes$v1i_agua_b%in%c(4,6),1, #pan does calssify protected unprotected
+                                                                                                                  ifelse(jefes$pais_c=="PER" & jefes$t110%in%c(3,6),1, #peru correcto
+                                                                                                                         ifelse(jefes$pais_c=="PRY" & jefes$v06%in%c(8,10),1, #PRY correcto
+                                                                                                                                ifelse(jefes$pais_c=="SLV" & jefes$r313%in%c(4.1,5,5.1,8,10,12),1, #svy does classify properly
+                                                                                                                                       ifelse(jefes$pais_c=="URY" & jefes$d11%in%c(3,4),1,0)))))))))))))))))) #uruguay clasifica bien
 
 
 
@@ -93,123 +93,122 @@ jefes$npimplb<- ifelse(jefes$iv7%in%c(2,3),1, #elseARG diferencia es otro
 ##Water 7 days a week....countries not listed do not include question
 #Frequency
 jefes$freq<- ifelse(jefes$pais_c == "ARG",NA, ##ARG doesnt ask about frequency
-                    ifelse(jefes$s01a_11b%in%c(7),1, #BOL
-                           ifelse(jefes$s01008%in%c(1),1, ##BRA
+                    ifelse(jefes$pais_c=="BOL" & jefes$s01a_11b%in%c(7),1, #BOL
+                           ifelse(jefes$pais_c=="BRA" & jefes$s01008%in%c(1),1, ##BRA
                                   ifelse(jefes$pais_c=="CHL",NA, ##CHILE doesnt ask about frequency
-                                         ifelse(jefes$p4040%in%c(1),1, #col
+                                         ifelse(jefes$pais_c=="COL" & jefes$p4040%in%c(1),1, #col
                                                 ifelse(jefes$pais_c=="CRI",NA, ##cr doesnt ask about frequency
                                                        ifelse(jefes$pais_c=="DOM",NA, ##DOM doesnt ask about frequency
                                                               ifelse(jefes$pais_c=="ECU",NA, ##ECU doesnt ask about frequency
                                                                      ifelse(jefes$pais_c=="GTM",NA, ##GTM doesnt ask about frequency
                                                                             ifelse(jefes$pais_c=="HND",NA, ##HND doesnt ask about frequency
                                                                                    ifelse(jefes$pais_c=="JAM",NA, ##JAM doesnt ask about frequency
-                                                                                          ifelse(jefes$dotac_agua%in%c(1),1, #mex
+                                                                                          ifelse(jefes$pais_c=="MEX" & jefes$dotac_agua%in%c(1),1, #mex
                                                                                                  ifelse(jefes$pais_c=="NIC",NA, ##NIC doesnt ask about frequency
                                                                                                         ifelse(jefes$pais_c=="PAN"& jefes$v1j1_veran == 7 & jefes$v1j1_invie == 7, 1,##PAN does ask about frequency, need to review.
-                                                                                                               ifelse(jefes$p110c%in%c(1),1, #peru
+                                                                                                               ifelse(jefes$pais_c=="PER" & jefes$p110c%in%c(1),1, #peru
                                                                                                                       ifelse(jefes$pais_c=="PRY",NA, ##PRY does ask about frequency, but only hours per day, does not ask about days
-                                                                                                                             ifelse(jefes$r312d%in%c(7),1, #SVD
+                                                                                                                             ifelse(jefes$pais_c=="SLV" & jefes$r312d%in%c(7),1, #SVD
                                                                                                                                     ifelse(jefes$pais_c=="URY",NA,0)))))))))))))))))) #Uruguay doesnt ask about frequency
 
-p <-split(jefes, jefes$pais_c)
 
 ##R: If there isnt a question about exclusive, NA
 ##Sanitation
 ###Unshared bathroom
-jefes$unshared<- ifelse(jefes$ii9%in%c(1),1, #ARG
-                        ifelse(jefes$s01a_17%in%c(1),1, #BOL
-                               ifelse(jefes$s01011a%in%c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16),1, ##BRA
+jefes$unshared<- ifelse(jefes$pais_c=="ARG" & jefes$ii9%in%c(1),1, #ARG
+                        ifelse(jefes$pais_c=="BOL" & jefes$s01a_17%in%c(1),1, #BOL
+                               ifelse(jefes$pais_c=="BRA" & jefes$s01011a%in%c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16),1, ##BRA
                                       ifelse(jefes$pais_c%in%c("CHL"),NA, ##CHILE ##CHANGE TO NA
-                                             ifelse(jefes$p5030%in%c(1),1,##COL
-                                                    ifelse(jefes$v13b%in%c(1),1, ##cr
-                                                           ifelse(jefes$tipo_sanitario%in%c(1,3),1, ##dOM
-                                                                  ifelse(jefes$vi15%in%c(2),1, ##ECU
+                                             ifelse(jefes$pais_c=="COL" & jefes$p5030%in%c(1),1,##COL
+                                                    ifelse(jefes$pais_c=="CRI" & jefes$v13b%in%c(1),1, ##cr
+                                                           ifelse(jefes$pais_c=="DOM" & jefes$tipo_sanitario%in%c(1,3),1, ##dOM
+                                                                  ifelse(jefes$pais_c=="ECU" & jefes$vi15%in%c(2),1, ##ECU
                                                                          ifelse(jefes$pais_c%in%c("GTM"),NA, #GUATE
-                                                                                ifelse(jefes$dh206%in%c(1),1, #honduras
-                                                                                       ifelse(jefes$i6%in%c(1),1, #jam
-                                                                                              ifelse(jefes$uso_compar%in%c(2),1, #mex
+                                                                                ifelse(jefes$pais_c=="HND" & jefes$dh206%in%c(1),1, #honduras
+                                                                                       ifelse(jefes$pais_c=="JAM" & jefes$i6%in%c(1),1, #jam
+                                                                                              ifelse(jefes$pais_c=="MEX" & jefes$uso_compar%in%c(2),1, #mex
                                                                                                      ifelse(jefes$pais_c%in%c("NIC"),NA, #nic
-                                                                                                            ifelse(jefes$v1l_uso_sa%in%c(1),1, #pan
+                                                                                                            ifelse(jefes$pais_c=="PAN" & jefes$v1l_uso_sa%in%c(1),1, #pan
                                                                                                                    ifelse(jefes$pais_c%in%c("PER"),NA, #peru
                                                                                                                           ifelse(jefes$pais_c%in%c("PRY"),NA, #PRY
-                                                                                                                                 ifelse(jefes$r318%in%c(2),1, #svy does classify properly
-                                                                                                                                        ifelse(jefes$d15%in%c(1),1,0))))))))))))))))))
+                                                                                                                                 ifelse(jefes$pais_c=="SLV" & jefes$r318%in%c(2),1, #svy does classify properly
+                                                                                                                                        ifelse(jefes$pais_c=="URY" & jefes$d15%in%c(1),1,0))))))))))))))))))
 
 
 
 #Sewer
-jefes$sewer <- ifelse(jefes$iv11%in%c(1),1, #ARG
-                      ifelse(jefes$s01a_16%in%c(1),1, #BOL
-                             ifelse(jefes$s01012a%in%c(1),1, ##BRA
-                                    ifelse(jefes$v23%in%c(1),1, ##CHILE
-                                           ifelse(jefes$p5020%in%c(1),1,##COL
-                                                  ifelse(jefes$v13a%in%c(1),1, ##cr
-                                                         ifelse(jefes$se_encuentra_conectada_a%in%c(2),1, ##dOM
-                                                                ifelse(jefes$vi13%in%c(1),1, ##ECU
-                                                                       ifelse(jefes$p02b07%in%c(1),1, #GUATE
-                                                                              ifelse(jefes$dh205%in%c(1),1, #honduras
-                                                                                     ifelse(jefes$i5%in%c(1),1, #jam
-                                                                                            ifelse(jefes$drenaje%in%c(1),1, #mex
-                                                                                                   ifelse(jefes$s1p18%in%c(3),1, #nic
+jefes$sewer <- ifelse(jefes$pais_c=="ARG" & jefes$iv11%in%c(1),1, #ARG
+                      ifelse(jefes$pais_c=="BOL" & jefes$s01a_16%in%c(1),1, #BOL
+                             ifelse(jefes$pais_c=="BRA" & jefes$s01012a%in%c(1),1, ##BRA
+                                    ifelse(jefes$pais_c=="CHL" & jefes$v23%in%c(1),1, ##CHILE
+                                           ifelse(jefes$pais_c=="COL" & jefes$p5020%in%c(1),1,##COL
+                                                  ifelse(jefes$pais_c=="CRI" & jefes$v13a%in%c(1),1, ##cr
+                                                         ifelse(jefes$pais_c=="DOM" & jefes$se_encuentra_conectada_a%in%c(2),1, ##dOM
+                                                                ifelse(jefes$pais_c=="ECU" & jefes$vi13%in%c(1),1, ##ECU
+                                                                       ifelse(jefes$pais_c=="GTM" & jefes$p02b07%in%c(1),1, #GUATE
+                                                                              ifelse(jefes$pais_c=="HND" & jefes$dh205%in%c(1),1, #honduras
+                                                                                     ifelse(jefes$pais_c=="JAM" & jefes$i5%in%c(1),1, #jam
+                                                                                            ifelse(jefes$pais_c=="MEX" & jefes$drenaje%in%c(1),1, #mex
+                                                                                                   ifelse(jefes$pais_c=="NIC" & jefes$s1p18%in%c(3),1, #nic
                                                                                                           ifelse(jefes$pais_c%in%c("PAN"),NA, #not separated from septic
-                                                                                                                 ifelse(jefes$t111a%in%c(1,2),1, #peru
-                                                                                                                        ifelse(jefes$v13%in%c(1),1, #PRY
-                                                                                                                               ifelse(jefes$r317%in%c(1,3),1, #svy does classify properly
-                                                                                                                                      ifelse(jefes$d16%in%c(1),1,0))))))))))))))))))
+                                                                                                                 ifelse(jefes$pais_c=="PER" & jefes$t111a%in%c(1,2),1, #peru
+                                                                                                                        ifelse(jefes$pais_c=="PRY" & jefes$v13%in%c(1),1, #PRY
+                                                                                                                               ifelse(jefes$pais_c=="SLV" & jefes$r317%in%c(1,3),1, #svy does classify properly
+                                                                                                                                      ifelse(jefes$pais_c=="URY" & jefes$d16%in%c(1),1,0))))))))))))))))))
 
 ##R: If the country doesnt differentiate between the sewer and septic, all households are put in septic
 ##Septic        
-jefes$septic <- ifelse(jefes$iv11%in%c(2),1, #ARG
-                       ifelse(jefes$s01a_16%in%c(2),1, #BOL
-                              ifelse(jefes$s01012a%in%c(2,3),1, ##BRA
-                                     ifelse(jefes$v23%in%c(2),1, ##CHILE
-                                            ifelse(jefes$p5020%in%c(2),1,##COL
-                                                   ifelse(jefes$v13a%in%c(2,3),1, ##cr
-                                                          ifelse(jefes$se_encuentra_conectada_a%in%c(1),1, ##dOM
-                                                                 ifelse(jefes$vi13%in%c(2),1, ##ECU//jmp suma cxon 3 tmb
-                                                                        ifelse(jefes$p02b07%in%c(2),1, #GUATE
-                                                                               ifelse(jefes$dh205%in%c(2),1, #honduras
-                                                                                      ifelse(jefes$i5%in%c(2),1, #jam this is just for not linked to anything
-                                                                                             ifelse(jefes$drenaje%in%c(2),1, #mex
-                                                                                                    ifelse(jefes$s1p18%in%c(4),1, #nic
-                                                                                                           ifelse(jefes$v1k_servic%in%c(2),1, #not separated from septic
-                                                                                                                  ifelse(jefes$t111a%in%c(4),1, #peru
-                                                                                                                         ifelse(jefes$v13%in%c(2),1, #PRY
-                                                                                                                                ifelse(jefes$r317%in%c(2,4),1, #svy does classify properly
-                                                                                                                                       ifelse(jefes$d16%in%c(2),1,0))))))))))))))))))
+jefes$septic <- ifelse(jefes$pais_c=="ARG" & jefes$iv11%in%c(2),1, #ARG
+                       ifelse(jefes$pais_c=="BOL" & jefes$s01a_16%in%c(2),1, #BOL
+                              ifelse(jefes$pais_c=="BRA" & jefes$s01012a%in%c(2,3),1, ##BRA
+                                     ifelse(jefes$pais_c=="CHL" & jefes$v23%in%c(2),1, ##CHILE
+                                            ifelse(jefes$pais_c=="COL" & jefes$p5020%in%c(2),1,##COL
+                                                   ifelse(jefes$pais_c=="CRI" & jefes$v13a%in%c(2,3),1, ##cr
+                                                          ifelse(jefes$pais_c=="DOM" & jefes$se_encuentra_conectada_a%in%c(1),1, ##dOM
+                                                                 ifelse(jefes$pais_c=="ECU" & jefes$vi13%in%c(2),1, ##ECU//jmp suma cxon 3 tmb
+                                                                        ifelse(jefes$pais_c=="GTM" &jefes$p02b07%in%c(2),1, #GUATE
+                                                                               ifelse(jefes$pais_c=="HND" & jefes$dh205%in%c(2),1, #honduras
+                                                                                      ifelse(jefes$pais_c=="JAM" & jefes$i5%in%c(2),1, #jam this is just for not linked to anything
+                                                                                             ifelse(jefes$pais_c=="MEX" & jefes$drenaje%in%c(2),1, #mex
+                                                                                                    ifelse(jefes$pais_c=="NIC" & jefes$s1p18%in%c(4),1, #nic
+                                                                                                           ifelse(jefes$pais_c=="PAN" & jefes$v1k_servic%in%c(2),1, #not separated from septic
+                                                                                                                  ifelse(jefes$pais_c=="PER" & jefes$t111a%in%c(4),1, #peru
+                                                                                                                         ifelse(jefes$pais_c=="PRY" & jefes$v13%in%c(2),1, #PRY
+                                                                                                                                ifelse(jefes$pais_c=="SLV" & jefes$r317%in%c(2,4),1, #svy does classify properly
+                                                                                                                                       ifelse(jefes$pais_c=="URY" & jefes$d16%in%c(2),1,0))))))))))))))))))
 
 
 
 ##Improved latrine higher bound 
-jefes$latrinehb <- ifelse(jefes$iv11%in%c(3),1, #ARG,lb seria 0
-                          ifelse(jefes$s01a_15%in%c(2,4),1, #BOL lb es lo mismo
-                                 ifelse(jefes$s01012a%in%c(4),1, ##BRA//lb es 0
-                                        ifelse(jefes$v23%in%c(3,4,6,7),1, ##CHILE clas correcta lb es lo mismo
-                                               ifelse(jefes$p5020%in%c(3,4),1,##COL lb es solo 3
-                                                      ifelse(jefes$v13a%in%c(4),1, ##cr lb es 0
-                                                             ifelse(jefes$tipo_sanitario%in%c(3,4),1, ##dOM lb es 0
-                                                                    ifelse(jefes$vi13%in%c(3) | jefes$vi13b%in%c(1),1, ##ECU//jmp suma cxon 3 tmb como fosa, lb es 0
-                                                                           ifelse(jefes$p02b07%in%c(4),1, #GUATE lb es 0
-                                                                                  ifelse(jefes$dh205%in%c(5,6),1, #honduras bien clasificado
-                                                                                         ifelse(jefes$i5%in%c(3),1, #jam lb is 0
+jefes$latrinehb <- ifelse(jefes$pais_c=="ARG" & jefes$iv11%in%c(3),1, #ARG,lb seria 0
+                          ifelse(jefes$pais_c=="BOL" &jefes$s01a_15%in%c(2,4),1, #BOL lb es lo mismo
+                                 ifelse(jefes$pais_c=="BRA" & jefes$s01012a%in%c(4),1, ##BRA//lb es 0
+                                        ifelse(jefes$pais_c=="CHL" & jefes$v23%in%c(3,4,6,7),1, ##CHILE clas correcta lb es lo mismo
+                                               ifelse(jefes$pais_c=="COL" &jefes$p5020%in%c(3,4),1,##COL lb es solo 3
+                                                      ifelse(jefes$pais_c=="CRI" & jefes$v13a%in%c(4),1, ##cr lb es 0
+                                                             ifelse(jefes$pais_c=="DOM" & jefes$tipo_sanitario%in%c(3,4),1, ##dOM lb es 0
+                                                                    ifelse(jefes$pais_c=="ECU" & jefes$vi13%in%c(3) | jefes$vi13b%in%c(1),1, ##ECU//jmp suma cxon 3 tmb como fosa, lb es 0
+                                                                           ifelse(jefes$pais_c=="GTM" & jefes$p02b07%in%c(4),1, #GUATE lb es 0
+                                                                                  ifelse(jefes$pais_c=="HND" &jefes$dh205%in%c(5,6),1, #honduras bien clasificado
+                                                                                         ifelse(jefes$pais_c=="JAM" & jefes$i5%in%c(3),1, #jam lb is 0
                                                                                                 ifelse(jefes$pais_c=="MEX",NA, #mex lb es 0, mex doesnt ask about toilet type
-                                                                                                       ifelse(jefes$s1p18%in%c(2),1, #nic mismo que hb
-                                                                                                              ifelse(jefes$v1k_servic%in%c(1),1, #lb es 0 PAN
-                                                                                                                     ifelse(jefes$t111a%in%c(3,5),1, #peru lb is only 3
-                                                                                                                            ifelse(jefes$v13%in%c(3,5,6,7),1, #PRY lb is only 5
-                                                                                                                                   ifelse(jefes$r317%in%c(5,6,7,8,9,10),1, #svy lb is only 7-10
+                                                                                                       ifelse(jefes$pais_c=="NIC" &jefes$s1p18%in%c(2),1, #nic mismo que hb
+                                                                                                              ifelse(jefes$pais_c=="PAN" & jefes$v1k_servic%in%c(1),1, #lb es 0 PAN
+                                                                                                                     ifelse(jefes$pais_c=="PER" &jefes$t111a%in%c(3,5),1, #peru lb is only 3
+                                                                                                                            ifelse(jefes$pais_c=="PRY" & jefes$v13%in%c(3,5,6,7),1, #PRY lb is only 5
+                                                                                                                                   ifelse(jefes$pais_c=="SLV" & jefes$r317%in%c(5,6,7,8,9,10),1, #svy lb is only 7-10
                                                                                                                                           ifelse(jefes$pais_c%in%c("URY"),NA,0)))))))))))))))))) #uruguay doesnt have a question
 
 
 ##Improved latrine lower bound 
-jefes$latrinelb <- ifelse(jefes$s01a_15%in%c(2,4),1, #BOL lb es lo mismo
-                          ifelse(jefes$v23%in%c(3,4,6,7),1, ##CHILE clas correcta lb es lo mismo
-                                 ifelse(jefes$dh205%in%c(5,6),1, #honduras bien clasificado
-                                        ifelse(jefes$s1p18%in%c(2),1, #nic mismo que hb
-                                               ifelse(jefes$vi13%in%c(3) | jefes$vi13b%in%c(1),1, #ECU
-                                                      ifelse(jefes$t111a%in%c(3),1, #peru lb is only 3
-                                                             ifelse(jefes$v13%in%c(5),1, #PRY lb is only 5
-                                                                    ifelse(jefes$r317%in%c(7,8,9,10),1, #svy lb is only 7-10
+jefes$latrinelb <- ifelse(jefes$pais_c=="BOL" & jefes$s01a_15%in%c(2,4),1, #BOL lb es lo mismo
+                          ifelse(jefes$pais_c=="CHL" & jefes$v23%in%c(3,4,6,7),1, ##CHILE clas correcta lb es lo mismo
+                                 ifelse(jefes$pais_c=="HND" & jefes$dh205%in%c(5,6),1, #honduras bien clasificado
+                                        ifelse(jefes$pais_c=="NIC" & jefes$s1p18%in%c(2),1, #nic mismo que hb
+                                               ifelse(jefes$pais_c=="ECU" & jefes$vi13%in%c(3) | jefes$vi13b%in%c(1),1, #ECU
+                                                      ifelse(jefes$pais_c=="PER" & jefes$t111a%in%c(3),1, #peru lb is only 3
+                                                             ifelse(jefes$pais_c=="PRY" & jefes$v13%in%c(5),1, #PRY lb is only 5
+                                                                    ifelse(jefes$pais_c=="SLV" &jefes$r317%in%c(7,8,9,10),1, #svy lb is only 7-10
                                                                            ifelse(jefes$pais_c%in%c("URY"),NA,
                                                                                   ifelse(jefes$pais_c%in%c("MEX"),NA,0))))))))))
 
@@ -217,27 +216,29 @@ jefes$latrinelb <- ifelse(jefes$s01a_15%in%c(2,4),1, #BOL lb es lo mismo
 
 
 ##open defecation apro
-jefes$opdef <- ifelse(jefes$iv8%in%c(0,2,3,4,5,6,7,8,9),1, # ARG  
-                      ifelse(jefes$s01a_15%in%c(5),1, #BOL 
-                             ifelse(jefes$s01011c%in%c(2),1, ##BRA
-                                    ifelse(jefes$v23%in%c(8),1, ##CHILE class correcta 
-                                           ifelse(jefes$p5020%in%c(6),1,##COL
-                                                  ifelse(jefes$v14a%in%c(0),0, ##cr 
-                                                         ifelse(jefes$tipo_sanitario%in%c(5),1, ##dOM
-                                                                ifelse(jefes$vi13d%in%c(1),1, ##ecuador
-                                                                       ifelse(jefes$p02b07%in%c(5),1, #GUATE
-                                                                              ifelse(jefes$dh204%in%c(2),1, #honduras bien clasificado
-                                                                                     ifelse(jefes$i5%in%c(5),1, #jam
-                                                                                            ifelse(jefes$excusado%in%c(2),1, #mex 
-                                                                                                   ifelse(jefes$s1p18%in%c(6),1, #nic 
-                                                                                                          ifelse(jefes$v1k_servic%in%c(3),1, ##panama 
+jefes$opdef <- ifelse(jefes$pais_c=="ARG" & jefes$iv8%in%c(0,2,3,4,5,6,7,8,9),1, # ARG  
+                      ifelse(jefes$pais_c=="BOL" & jefes$s01a_15%in%c(5),1, #BOL 
+                             ifelse(jefes$pais_c=="BRA" &jefes$s01011c%in%c(2),1, ##BRA
+                                    ifelse(jefes$pais_c=="CHL" & jefes$v23%in%c(8),1, ##CHILE class correcta 
+                                           ifelse(jefes$pais_c=="COL" & jefes$p5020%in%c(6),1,##COL
+                                                  ifelse(jefes$pais_c=="CRI" & jefes$v14a%in%c(0),1, ##cr 
+                                                         ifelse(jefes$pais_c=="DOM" & jefes$tipo_sanitario%in%c(5),1, ##dOM
+                                                                ifelse(jefes$pais_c=="ECU" & jefes$vi13d%in%c(1),1, ##ecuador
+                                                                       ifelse(jefes$pais_c=="GTM" & jefes$p02b07%in%c(5),1, #GUATE
+                                                                              ifelse(jefes$pais_c=="HND" & jefes$dh204%in%c(2),1, #honduras bien clasificado
+                                                                                     ifelse(jefes$pais_c=="JAM" &jefes$i5%in%c(5),1, #jam
+                                                                                            ifelse(jefes$pais_c=="MEX" &jefes$excusado%in%c(2),1, #mex 
+                                                                                                   ifelse(jefes$pais_c=="NIC" &jefes$s1p18%in%c(6),1, #nic 
+                                                                                                          ifelse(jefes$pais_c=="PAN" &jefes$v1k_servic%in%c(3),1, ##panama 
                                                                                                                  ifelse(jefes$pais_c=="PER",NA, #asks if toilet is connected to open field, but not if household does not have access to toilet
-                                                                                                                        ifelse(jefes$v12%in%c(2),1, #PRY lb is only 5
-                                                                                                                               ifelse(jefes$r316%in%c(2),1, #svy 
-                                                                                                                                      ifelse(jefes$d13%in%c(2),1,0)))))))))))))))))) #URY
+                                                                                                                        ifelse(jefes$pais_c=="PRY" & jefes$v12%in%c(6),1, #PRY
+                                                                                                                               ifelse(jefes$pais_c=="SLV" &jefes$r316%in%c(2),1, #svy 
+                                                                                                                                      ifelse(jefes$pais_c=="URY" & jefes$d13%in%c(2),1,0)))))))))))))))))) #URY
 
 
 
+jefes_split <- split(jefes,jefes$pais_c)
+unique(jefes_split$PRY$v12)
 
 ##Creation of income quintiles
 # 
@@ -409,7 +410,7 @@ urbanquintilepercents<-jefes %>%
 summaryurbanquintiles<-jefes %>%
   group_by(pais,pais_c,scope,quintilitpc) %>%
   summarize(ave_income_pc=weighted.mean(itpcclean, factor_ch,na.rm=TRUE),
-            max_income_pc=max(itpcclean, na.rm=FALSE),
+            max_income_pc=max(itpcclean, na.rm=TRUE),
             ave_hh_income=weighted.mean(ing_hogar_clean, factor_ch,na.rm=TRUE),
             max_hh_income=max(ing_hogar_clean,na.rm=FALSE),
             access_water_piped_house=weighted.mean(pipedhouse, factor_ch,na.rm=TRUE),
@@ -484,7 +485,7 @@ summaryquintiles<-jefes %>%
   summarize(urbanpc=weighted.mean(urban,factor_ch/nmiembros_ch,na.rm=TRUE),
             ruralpc=weighted.mean(rural,factor_ch/nmiembros_ch,na.rm=TRUE),
             ave_income_pc=weighted.mean(itpcclean, factor_ch,na.rm=TRUE),
-            max_income_pc=max(itpcclean, na.rm=FALSE),
+            max_income_pc=max(itpcclean, na.rm=TRUE),
             ave_hh_income=weighted.mean(ing_hogar_clean, factor_ch,na.rm=TRUE),
             max_hh_income=max(ing_hogar_clean,na.rm=FALSE),
             access_water_piped_house=weighted.mean(pipedhouse, factor_ch,na.rm=TRUE),
@@ -627,9 +628,9 @@ summarysexourbanoquintil<-jefes %>%
   group_by(pais,pais_c,scope,sex, quintilitpc) %>%
   summarize(
     ave_income_pc=weighted.mean(itpcclean, factor_ch,na.rm=TRUE),
-    max_income_pc=max(itpcclean, na.rm=FALSE),
+    max_income_pc=max(itpcclean, na.rm=TRUE),
     ave_hh_income=weighted.mean(ing_hogar_clean, factor_ch,na.rm=TRUE),
-    max_hh_income=max(ing_hogar_clean,na.rm=FALSE),
+    max_hh_income=max(ing_hogar_clean,na.rm=TRUE),
     access_water_piped_house=weighted.mean(pipedhouse, factor_ch,na.rm=TRUE),
     access_water_piped_plot=weighted.mean(pipedprem, factor_ch,na.rm=TRUE),
     access_water_other_min=weighted.mean(npimplb, factor_ch,na.rm=TRUE),
@@ -716,9 +717,9 @@ summarysexourbanoquintil$urbanpc <- NA
 summarysexoquintil<-jefes %>%
   group_by(pais,pais_c,quintilitpc,sex) %>%
   summarize(ave_income_pc=weighted.mean(itpcclean, factor_ch,na.rm=TRUE),
-            max_income_pc=max(itpcclean, na.rm=FALSE),
+            max_income_pc=max(itpcclean, na.rm=TRUE),
             ave_hh_income=weighted.mean(ing_hogar_clean, factor_ch,na.rm=TRUE),
-            max_hh_income=max(ing_hogar_clean,na.rm=FALSE),
+            max_hh_income=max(ing_hogar_clean,na.rm=TRUE),
             access_water_piped_house=weighted.mean(pipedhouse, factor_ch,na.rm=TRUE),
             access_water_piped_plot=weighted.mean(pipedprem, factor_ch,na.rm=TRUE),
             access_water_other_min=weighted.mean(npimplb, factor_ch,na.rm=TRUE),
@@ -863,6 +864,7 @@ final$access_sewer_exclusive[is.nan(final$access_sewer_exclusive)]<-NA
 final$access_septic_exclusive[is.nan(final$access_septic_exclusive)]<-NA
 final$access_latrine_min[is.nan(final$access_latrine_min)]<-NA
 final$access_latrine_max[is.nan(final$access_latrine_max)]<-NA
+final$hygiene_defecation[is.nan(final$hygiene_defecation)]<-NA
 final$access_latrine_exclusive_min[is.nan(final$access_latrine_exclusive_min)]<-NA
 final$access_latrine_exclusive_max[is.nan(final$access_latrine_exclusive_max)]<-NA
 final$access_water_piped_plot[is.nan(final$access_water_piped_plot)]<-NA
@@ -935,3 +937,4 @@ for(i in 1:m){
               paste0("countrydata/",names(z[i]),".csv"), row.names = FALSE)
 }
 
+f <- subset(z$CRI, select = c(pais_c,idh_ch,v14a,p5020,v23,s01011c,s01a_15,iv8,opdef))
