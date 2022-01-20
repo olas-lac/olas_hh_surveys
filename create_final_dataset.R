@@ -1001,6 +1001,31 @@ summarysexo<-jefes %>%
     final[is.nan.data.frame(final)] <- NA
 
 
+    ### add year of survey
+    final$year <- ifelse(final$iso == "ARG",2018,
+                          ifelse(final$iso == "BRA",2019,
+                            ifelse(final$iso == "BOL",2018,
+                                   ifelse(final$iso == "CHL",2017,
+                                          ifelse(final$iso == "COL",2018,
+                                                 ifelse(final$iso == "CRI",2018,
+                                                        ifelse(final$iso == "DOM",2018,
+                                                               ifelse(final$iso =="SLV",2018,
+                                                                      ifelse(final$iso == "ECU",2017,
+                                                                             ifelse(final$iso == "GTM",2018,
+                                                                                    ifelse(final$iso == "HND",2018, 
+                                                                                           ifelse(final$iso == "JAM",2015, 
+                                                                                                  ifelse(final$iso == "MEX", 2018,
+                                                                                                         ifelse(final$iso ==  "NIC",2014,
+                                                                                                                ifelse(final$iso == "PAN",2018,
+                                                                                                                       ifelse(final$iso =="PRY",2017,
+                                                                                                                              ifelse(final$iso == "PER",2018,
+                                                                                                                                     ifelse(final$iso == "URY",2018,NA))))))))))))))))))
+                                                                                                                                                                                                           
+
+  
+    
+
+
 ######################## Data Availability Validation ###############################
 
 #Calculate data availability
@@ -1064,8 +1089,7 @@ write.csv(validationdata, file ="validation/data_validation.csv", row.names = FA
 
 
 ######################## Save data set for each country and overall dataset ###########################
-###split by country and export
-## add data handling for latrines ub&lb
+
 
 write.csv(final, file ="countrydata/OLAS_HH_Survey_Dataset.csv", row.names = FALSE)
 write.csv(dataavailability, file ="validation/data_availability.csv", row.names = FALSE)
@@ -1078,4 +1102,4 @@ for(i in 1:m){
               paste0("countrydata/",names(z[i]),".csv"), row.names = FALSE)
 }
 
-f <- subset(z$CRI, select = c(pais_c,idh_ch,v14a,p5020,v23,s01011c,s01a_15,iv8,opdef))
+##f <- subset(z$CRI, select = c(pais_c,idh_ch,v14a,p5020,v23,s01011c,s01a_15,iv8,opdef))
