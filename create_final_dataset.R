@@ -1034,7 +1034,7 @@ summarysexo<-jefes %>%
 
     
 dadummy <- final
-dadummy$access_water<- ifelse(is.na(final$access_water), 0, 1)
+dadummy$access_water<- ifelse(is.na(final$access_water_lb), 0, 1)
 dadummy$access_water_piped_house<- ifelse(is.na(final$access_water_piped_house), 0, 1)
 dadummy$access_water_piped_plot<- ifelse(is.na(final$access_water_piped_plot), 0, 1)
 dadummy$access_water_other_min<- ifelse(is.na(final$access_water_other_min), 0, 1)
