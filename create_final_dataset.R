@@ -283,7 +283,7 @@ library("dplyr")
 ## create one table
 ## Code was added to deal with missing data for Jamaica and Argentina
 
-
+library(dplyr)
 ######################## Summary Data with No Extra Dimensions #################################
     ## This section creates the base table of summary indicators with no extra dimensions.
 
@@ -969,7 +969,9 @@ summarysexo<-jefes %>%
 
 
     ## caculating access to "improved" water source 
-    finaldraft$access_water <- ifelse(is.na(finaldraft$access_water_piped_house),0, finaldraft$access_water_piped_house) + finaldraft$access_water_other_max + finaldraft$access_water_piped_plot
+    finaldraft$access_water_ub <- ifelse(is.na(finaldraft$access_water_piped_house),0, finaldraft$access_water_piped_house) + finaldraft$access_water_other_max + finaldraft$access_water_piped_plot
+    finaldraft$access_water_lb <- ifelse(is.na(finaldraft$access_water_piped_house),0, finaldraft$access_water_piped_house) + finaldraft$access_water_other_min + finaldraft$access_water_piped_plot
+    
     
     ## Arranging dataset to make it easier to check
     finaldraft <- relocate(finaldraft, pais_c, scope, quintile, sex,population, population_prc,ave_income_pc,	max_income_pc,	ave_hh_income,	max_hh_income)
